@@ -104,9 +104,24 @@ body {
   color: white;
   cursor: pointer;
   display: block;
-  font-family: 'Ibarra Real Nova', serif;
+  font-family: serif;
   font-size: clamp(3rem, 8vw, 8rem);
   padding: clamp(0.25rem, 0.5vw, 1rem) 0rem;
   text-decoration: none;
   transition: opacity 400ms ease;
+}
+
+#content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding-left: 10vw;
+  padding-right: 10vw;
+  font-family: 'Ibarra Real Nova', sans-serif;
+  color: white
+}
+
+#content h1 {
+  font-size: 4rem;
 }
