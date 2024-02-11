@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(20, 20, 20);
+  background-color: rgb(46, 46, 46);
   margin: 0px;
 }
 
@@ -115,13 +115,43 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  text-align: center;
-  padding-left: 10vw;
-  padding-right: 10vw;
+  text-align: left;
+  padding-left: 15vw;
+  padding-right: 15vw;
   font-family: 'Ibarra Real Nova', sans-serif;
-  color: white
 }
 
 #content h1 {
   font-size: 4rem;
+  color: white;
+}
+
+#content #sbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+}
+#content #sbs #image {
+  box-shadow: 0px 10px 20px rgba(0,0,0,0.332);
+  background-image: url('https://c02.purpledshub.com/uploads/sites/41/2013/04/GettyImages-640318118-c83a508.jpg');
+  background-size: cover;
+  
+  padding: 2rem;
+  max-width: 1000px;
+  min-width: 300px;
+  width: 50vw;
+  height: 60vh;
+}
+
+#content #boxtext {
+  background: white;
+  overflow: auto;
+  box-shadow: 0px 10px 20px rgba(0,0,0,0.332);
+  
+  padding: 2rem;
+  max-width: 1000px;
+  min-width: 300px;
+  width: 50vw;
+  height: 60vh;
 }
