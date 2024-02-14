@@ -29,10 +29,10 @@ body {
 #textdiv {
   width: 100%;
   text-align: center;
-  padding: 8vh;
+  padding: 5vh;
 }
 
-p {
+#textdiv p {
   color: white;
   -webkit-user-select: none;
   -ms-user-select: none;
