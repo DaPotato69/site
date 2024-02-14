@@ -1,7 +1,7 @@
 body {
   background-color: black;
   margin: 0rem;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 #image-track {
@@ -39,4 +39,95 @@ body {
   user-select: none;
   font-family: 'Courier New', Courier, monospace;
   font-size: 2em;
+}
+
+#bigassspacer{
+  height: 650px;
+}
+
+/* ----- Footer -----*/
+
+#footer h3, a {
+  font-family: "Rubik", sans-serif;
+  font-weight: 400;
+  margin: 0px;
+}
+
+#footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  bottom: 0px;
+  
+  width: 100%;
+}
+
+#footer-content {
+  padding: 8rem 16rem;
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+}
+
+.footer-section {  
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footer-section-title {
+  color: white;
+  font-size: 1.5rem;
+}
+
+.footer-section-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 160px;
+}
+
+.footer-section-links > a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-section-links > a:hover {
+  text-decoration: underline;
+}
+
+@media(max-width: 900px) {
+  #footer-content {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 4rem;
+  }
+  
+  .footer-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .footer-section-title {    
+    flex-shrink: 0;
+    width: 120px;
+  }
+}
+
+@media(max-width: 600px) {
+  #footer {
+    position: relative;  
+    margin-top: 90vh;
+  }
+  
+  #footer-content {
+    padding: 2rem;
+  }
+  
+  .footer-section-title {    
+    font-size: 1rem;
+  }
+  
+  .footer-section-links > a {
+    font-size: 0.8rem;
+  }
 }
