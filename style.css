@@ -4,6 +4,8 @@ body {
   overflow-x: hidden;
 }
 
+/* ----- Image Track ------ */
+
 #image-track {
   display: flex;
   gap: 4vmin;
@@ -41,11 +43,43 @@ body {
   font-size: 2em;
 }
 
+/* ----- Big ass spacer ----- */
+
 #bigassspacer{
   height: 650px;
 }
 
-/* ----- Footer -----*/
+/* ----- Blog ----- */
+.articles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.article {
+  min-width: 350px;
+  max-width: 350px;
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  padding: 20px;
+  border-radius: 15px;
+  border: 1px solid #393D47;
+}
+
+.article p {
+  overflow: hidden;
+  max-width: 1000ch;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.article:hover {
+  border: 1px solid #555c6c;
+}
+
+/* ----- Footer ----- */
 
 #footer h3, a {
   font-family: "Rubik", sans-serif;
