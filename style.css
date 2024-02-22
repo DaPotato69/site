@@ -69,10 +69,13 @@ body {
 }
 
 .article p {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
   overflow: hidden;
-  max-width: 1000ch;
-  white-space: nowrap;
+  max-width: 2000px;
   text-overflow: ellipsis;
+  height:56px;
 }
 
 .article:hover {
