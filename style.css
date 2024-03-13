@@ -168,3 +168,10 @@ body {
     font-size: 0.8rem;
   }
 }
+
+/* ----- Guide ----- */
+
+.articleimg {
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
