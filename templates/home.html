@@ -1,34 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Home</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/home.html"><img src="/resources/logo.png" height="40px"></a>
+            <a class="navbar-brand" href="{{ url_for('home') }}"><img src="{{ url_for('static', filename='logo.png') }}" height="40px"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="mynavbar">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/home.html">Home</a>
+                        <a class="nav-link active" href="{{ url_for('home') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="/gallery.html">Gallery</a>
+                        <a class="nav-link" href="{{ url_for('gallery') }}">Gallery</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/blog.html">Blog</a>
+                        <a class="nav-link" href="{{ url_for('blog') }}">Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/guide.html">Build Guide</a>
+                        <a class="nav-link" href="{{ url_for('guide') }}">Build Guide</a>
                     </li>
                 </ul>
             <form class="d-flex">
@@ -38,20 +39,39 @@
             </div>
         </div>
     </nav>
-
-    <div data-aos="fade-up" id="textdiv"><p>Drag to view images</p></div>
-    <div data-aos="fade-up" id="image-track" data-mouse-down-at="0" data-prev-percentage="0">
-        <img class="image" src="/resources/kb1.webp" draggable="false">
-        <img class="image" src="/resources/kb2.webp" draggable="false">
-        <img class="image" src="/resources/kb3.webp" draggable="false">
-        <img class="image" src="/resources/kb4.webp" draggable="false">
-        <img class="image" src="/resources/kb5.webp" draggable="false">
-        <img class="image" src="/resources/kb6.webp" draggable="false">
-        <img class="image" src="/resources/kb7.webp" draggable="false">
-        <img class="image" src="/resources/kb8.webp" draggable="false">
+    <div data-aos="fade-up" class=".container p-5 bg-muted text-white">
+        <h1>Epic container</h1>
+        <p>Cool text to go along with the heading!</p>
     </div>
-
-    <div id="bigassspacer"></div>
+    <div data-aos="flip-left" class=".container p-5 bg-muted text-white">
+        <h1>Epic container</h1>
+        <p>Cool text to go along with the heading!</p>
+    </div>
+    <div data-aos="fade-down" class=".container p-5 bg-muted text-white">
+        <h1>Epic container</h1>
+        <p>Cool text to go along with the heading!</p>
+    </div>
+    <div data-aos="flip-right" class=".container p-5 bg-muted text-white">
+        <h1>Epic container</h1>
+        <p>Cool text to go along with the heading!</p>
+    </div>
+    <div data-aos="fade-up" class=".container p-5 bg-muted text-white">
+        <h1>Epic container</h1>
+        <p>Cool text to go along with the heading!</p>
+    </div>
+    <div data-aos="flip-left" class=".container p-5 bg-muted text-white">
+        <h1>Epic container</h1>
+        <p>Cool text to go along with the heading!</p>
+    </div>
+    <div data-aos="fade-down" class=".container p-5 bg-muted text-white">
+        <h1>Epic container</h1>
+        <p>Cool text to go along with the heading!</p>
+    </div>
+    <div data-aos="flip-right" class=".container p-5 bg-muted text-white">
+        <h1>Epic container</h1>
+        <p>Cool text to go along with the heading!</p>
+    </div>
+    
 
     <footer id="footer">
         <div id="footer-content">
@@ -82,9 +102,9 @@
         </div>
     </footer>
 
+	<script src="{{ url_for('static', filename='home.js') }}"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>AOS.init();</script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <script src="home.js"></script>
 </body>
 </html>
