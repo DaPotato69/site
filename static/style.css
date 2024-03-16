@@ -66,6 +66,7 @@ body {
   padding: 20px;
   border-radius: 15px;
   border: 1px solid #393D47;
+  text-align: left;
 }
 
 .article p {

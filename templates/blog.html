@@ -41,10 +41,32 @@
     </nav>
 
     <div class="articles">
-        <div class="article bg-dark">
+        <button class="article bg-dark" data-bs-toggle="modal" data-bs-target="#myModal">
             <p class="h4 text-white">Epic article heading</p>
             <img src="https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/94b33192007265d12627d04f3b5e31d0?_a=AQAEufR" width="310px">
+        </button>
+
+        <div class="modal" id="myModal">
+            <div class="modal-dialog modal-lg modal-dialog-scrollable">
+                <div class="modal-content bg-dark text-light">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Modal Heading</h4>
+                        <button type="button" class="btn-close btn-light" data-bs-dismiss="modal"></button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam ab hic quod repellendus minus eos animi eum, perspiciatis nemo, natus facilis blanditiis sequi modi expedita officia esse earum ducimus harum! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam ab hic quod repellendus minus eos animi eum, perspiciatis nemo, natus facilis blanditiis sequi modi expedita officia esse earum ducimus harum! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam ab hic quod repellendus minus eos animi eum, perspiciatis nemo, natus facilis blanditiis sequi modi expedita officia esse earum ducimus harum! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam ab hic quod repellendus minus eos animi eum, perspiciatis nemo, natus facilis blanditiis sequi modi expedita officia esse earum ducimus harum! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam ab hic quod repellendus minus eos animi eum, perspiciatis nemo, natus facilis blanditiis sequi modi expedita officia esse earum ducimus harum! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam ab hic quod repellendus minus eos animi eum, perspiciatis nemo, natus facilis blanditiis sequi modi expedita officia esse earum ducimus harum! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam ab hic quod repellendus minus eos animi eum, perspiciatis nemo, natus facilis blanditiis sequi modi expedita officia esse earum ducimus harum! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam ab hic quod repellendus minus eos animi eum, perspiciatis nemo, natus facilis blanditiis sequi modi expedita officia esse earum ducimus harum! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam ab hic quod repellendus minus eos animi eum, perspiciatis nemo, natus facilis blanditiis sequi modi expedita officia esse earum ducimus harum! </p>
+                        <img class="img-fluid" src="{{ url_for('static', filename='kb3.webp') }}">
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
         </div>
+
         <div class="article bg-dark">
             <p class="h4 text-white">Another epic article heading</p>
             <img src="https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/94b33192007265d12627d04f3b5e31d0?_a=AQAEufR" width="310px">
