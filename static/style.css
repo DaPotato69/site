@@ -87,6 +87,11 @@ body {
   margin-bottom: 25px;
 }
 
+.write textarea {
+  min-width: 100%;
+  height: 200px;
+}
+
 /* ----- Footer ----- */
 
 #footer h3, a {
