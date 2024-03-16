@@ -82,6 +82,10 @@ body {
   border: 1px solid #555c6c;
 }
 
+.writebutton {
+  margin-bottom: 25px;
+}
+
 /* ----- Footer ----- */
 
 #footer h3, a {

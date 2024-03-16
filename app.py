@@ -17,3 +17,13 @@ def gallery():
 @app.route('/guide')
 def guide():
     return render_template('guide.html')
+
+@app.route('/write')
+def write():
+    return render_template('write.html')
+
+@app.route('/write', methods=['POST'])
+def write_post():
+    text = request.form['text']
+    print(text)
+    return render_template('write.html')

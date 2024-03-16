@@ -26,7 +26,7 @@
                         <a class="nav-link" href="{{ url_for('gallery') }}">Gallery</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="{{ url_for('blog') }}">Blog</a>
+                        <a class="nav-link" href="{{ url_for('blog') }}">Blog</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('guide') }}">Build Guide</a>
@@ -39,34 +39,14 @@
             </div>
         </div>
     </nav>
-
-    <div class="articles">
-        <div class="article bg-dark">
-            <p class="h4 text-white">Epic article heading</p>
-            <img src="https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/94b33192007265d12627d04f3b5e31d0?_a=AQAEufR" width="310px">
-        </div>
-        <div class="article bg-dark">
-            <p class="h4 text-white">Another epic article heading</p>
-            <img src="https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/94b33192007265d12627d04f3b5e31d0?_a=AQAEufR" width="310px">
-        </div>
-        <div class="article bg-dark">
-            <p class="h4 text-white">Extremely long, boring, and uninformative headings tend to disengage readers, whereas short, sharp headings tend to bring in more clicks per view, study finds.</p>
-            <img src="https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/94b33192007265d12627d04f3b5e31d0?_a=AQAEufR" width="310px">
-        </div>
-        <div class="article bg-dark">
-            <p class="h4 text-white">Short</p>
-            <img src="https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/94b33192007265d12627d04f3b5e31d0?_a=AQAEufR" width="310px">
-        </div>
-        <div class="article bg-dark">
-            <p class="h4 text-white">A 🥚 heading 🤣 with 😑 emojis 😭</p>
-            <img src="https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/94b33192007265d12627d04f3b5e31d0?_a=AQAEufR" width="310px">
-        </div>
-        <div class="article bg-dark">
-            <p class="h4 text-white">I ran out of ideas for headings 😭</p>
-            <img src="https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/94b33192007265d12627d04f3b5e31d0?_a=AQAEufR" width="310px">
-        </div>
+    
+    <div class=".container py-3 mx-auto bg-muted text-white" style="width: 60vw;">
+        <h1 data-aos="fade-up">Write a Blog Post</h1>
+        <form method="POST">
+            <input name="text">
+            <input type="submit">
+        </form>
     </div>
-    <div class="writebutton text-center"><a class="btn btn-secondary" href="{{ url_for('write') }}">Write an article</a></div>
 
     <footer id="footer">
         <div id="footer-content">
