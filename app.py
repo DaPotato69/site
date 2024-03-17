@@ -6,8 +6,7 @@ from werkzeug.utils import secure_filename
 
 conn = sqlite3.connect('articles.db')
 cur = conn.cursor()
-cur.execute("DROP TABLE IF EXISTS ARTICLES")
-cur.execute("CREATE TABLE ARTICLES (title VARCHAR(255) NOT NULL, author VARCHAR(255) NOT NULL, published VARCHAR(255) NOT NULL, article TEXT NOT NULL, imgname VARCHAR(255) NOT NULL)")
+cur.execute("CREATE TABLE IF NOT EXISTS ARTICLES (title VARCHAR(255) NOT NULL, author VARCHAR(255) NOT NULL, published VARCHAR(255) NOT NULL, article TEXT NOT NULL, imgname VARCHAR(255) NOT NULL)")
 conn.close()
 
 app = Flask(__name__)
@@ -22,7 +21,13 @@ def home():
 
 @app.route('/blog')
 def blog():
-    return render_template('blog.html')
+    conn = sqlite3.connect('articles.db')
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM ARTICLES")
+    articles = cur.fetchall()
+    conn.close()
+    print(articles)
+    return render_template('blog.html', articles=articles)
 
 @app.route('/gallery')
 def gallery():
@@ -41,19 +46,22 @@ def allowed_file(filename):
 
 @app.route('/write', methods=['POST'])
 def write_post():
+    article = dict(request.form)
+
     if 'file' not in request.files:
         flash('Please upload an image')
     file = request.files['file']
     if file.filename == '':
         flash('No selected file')
     if file and allowed_file(file.filename):
-        filename = secure_filename(file.filename)
+        extension = file.filename.split('.')[-1]
+        filename = secure_filename(article['title'] + '.' + extension)
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
     
     conn = sqlite3.connect('articles.db')
     cur = conn.cursor()
 
-    article = dict(request.form)
+    
     article["date"] = str(datetime.now().strftime("%d %B %Y"))
     print(article)
 

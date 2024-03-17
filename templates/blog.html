@@ -43,7 +43,7 @@
     <div class="articles">
         <button class="article bg-dark" data-bs-toggle="modal" data-bs-target="#myModal">
             <p class="h4 text-white">Epic article heading</p>
-            <img src="https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/94b33192007265d12627d04f3b5e31d0?_a=AQAEufR" width="310px">
+            <img src="{{ url_for('static', filename='kb3.webp') }}" width="310px" height="207px">
         </button>
 
         <div class="modal" id="myModal">
@@ -51,13 +51,16 @@
                 <div class="modal-content bg-dark text-light">
                     <!-- Modal Header -->
                     <div class="modal-header">
-                        <h4 class="modal-title">Modal Heading</h4>
+                        <h4 class="modal-title">
+                            Modal Heading<br>
+                            <small>Modal Subtitle</small>
+                        </h4>
                         <button type="button" class="btn-close btn-light" data-bs-dismiss="modal"></button>
                     </div>
                     <!-- Modal body -->
                     <div class="modal-body">
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam ab hic quod repellendus minus eos animi eum, perspiciatis nemo, natus facilis blanditiis sequi modi expedita officia esse earum ducimus harum! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam ab hic quod repellendus minus eos animi eum, perspiciatis nemo, natus facilis blanditiis sequi modi expedita officia esse earum ducimus harum! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam ab hic quod repellendus minus eos animi eum, perspiciatis nemo, natus facilis blanditiis sequi modi expedita officia esse earum ducimus harum! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam ab hic quod repellendus minus eos animi eum, perspiciatis nemo, natus facilis blanditiis sequi modi expedita officia esse earum ducimus harum! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam ab hic quod repellendus minus eos animi eum, perspiciatis nemo, natus facilis blanditiis sequi modi expedita officia esse earum ducimus harum! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam ab hic quod repellendus minus eos animi eum, perspiciatis nemo, natus facilis blanditiis sequi modi expedita officia esse earum ducimus harum! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam ab hic quod repellendus minus eos animi eum, perspiciatis nemo, natus facilis blanditiis sequi modi expedita officia esse earum ducimus harum! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam ab hic quod repellendus minus eos animi eum, perspiciatis nemo, natus facilis blanditiis sequi modi expedita officia esse earum ducimus harum! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam ab hic quod repellendus minus eos animi eum, perspiciatis nemo, natus facilis blanditiis sequi modi expedita officia esse earum ducimus harum! </p>
                         <img class="img-fluid" src="{{ url_for('static', filename='kb3.webp') }}">
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam ab hic quod repellendus minus eos animi eum, perspiciatis nemo, natus facilis blanditiis sequi modi expedita officia esse earum ducimus harum! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam ab hic quod repellendus minus eos animi eum, perspiciatis nemo, natus facilis blanditiis sequi modi expedita officia esse earum ducimus harum! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam ab hic quod repellendus minus eos animi eum, perspiciatis nemo, natus facilis blanditiis sequi modi expedita officia esse earum ducimus harum! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam ab hic quod repellendus minus eos animi eum, perspiciatis nemo, natus facilis blanditiis sequi modi expedita officia esse earum ducimus harum! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam ab hic quod repellendus minus eos animi eum, perspiciatis nemo, natus facilis blanditiis sequi modi expedita officia esse earum ducimus harum! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam ab hic quod repellendus minus eos animi eum, perspiciatis nemo, natus facilis blanditiis sequi modi expedita officia esse earum ducimus harum! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam ab hic quod repellendus minus eos animi eum, perspiciatis nemo, natus facilis blanditiis sequi modi expedita officia esse earum ducimus harum! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam ab hic quod repellendus minus eos animi eum, perspiciatis nemo, natus facilis blanditiis sequi modi expedita officia esse earum ducimus harum! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam ab hic quod repellendus minus eos animi eum, perspiciatis nemo, natus facilis blanditiis sequi modi expedita officia esse earum ducimus harum! </p>
                     </div>
                     <!-- Modal footer -->
                     <div class="modal-footer">
@@ -87,6 +90,36 @@
             <p class="h4 text-white">I ran out of ideas for headings 😭</p>
             <img src="https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/94b33192007265d12627d04f3b5e31d0?_a=AQAEufR" width="310px">
         </div>
+
+        {% for arti in articles %}
+            <button class="article bg-dark" data-bs-toggle="modal" data-bs-target={{ '#' + arti[0] | replace(' ', '_') }}>
+                <p class="h4 text-white">{{ arti[0] }}</p>
+                <img src="{{ url_for('static', filename='blogs' + '/' + arti[4]) }}" width="310px" height="207px" style="object-fit: cover;">
+            </button>
+            <div class="modal" id="{{ arti[0] | replace(' ', '_') }}">
+                <div class="modal-dialog modal-lg modal-dialog-scrollable">
+                    <div class="modal-content bg-dark text-light">
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h4 class="modal-title">
+                                {{ arti[0] }}<br>
+                                <small>Author: {{ arti[1] }}, Published: {{ arti[2] }}</small>
+                            </h4>
+                            <button type="button" class="btn-close btn-light" data-bs-dismiss="modal"></button>
+                        </div>
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                            <img class="img-fluid" src="{{ url_for('static', filename='blogs' + '/' + arti[4]) }}">
+                            <p>{{ arti[3] }}</p>
+                        </div>
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
     </div>
     <div class="writebutton text-center"><a class="btn btn-secondary" href="{{ url_for('write') }}">Write an article</a></div>
 
