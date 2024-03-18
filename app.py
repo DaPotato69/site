@@ -17,16 +17,12 @@ app.secret_key = 'many random bytes'
 
 @app.route('/')
 def home():
-    return render_template('home.html')
-
-@app.route('/blog')
-def blog():
     conn = sqlite3.connect('articles.db')
     cur = conn.cursor()
     cur.execute("SELECT * FROM ARTICLES")
     articles = cur.fetchall()
-    conn.close()
     print(articles)
+    conn.close()
     return render_template('blog.html', articles=articles)
 
 @app.route('/gallery')
@@ -63,10 +59,9 @@ def write_post():
 
     
     article["date"] = str(datetime.now().strftime("%d %B %Y"))
-    print(article)
-
+    print(article['title'])
     cur.execute("INSERT INTO ARTICLES VALUES (?, ?, ?, ?, ?)", (article['title'], article['author'], article['date'], article['article'], filename))
     conn.commit()
     conn.close()
 
-    return redirect(url_for('blog'))
+    return redirect(url_for('home'))

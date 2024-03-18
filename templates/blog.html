@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Blog</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script type="module" src="https://md-block.verou.me/md-block.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
@@ -20,13 +21,10 @@
             <div class="collapse navbar-collapse" id="mynavbar">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+                        <a class="nav-link active" href="{{ url_for('home') }}">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('gallery') }}">Gallery</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="{{ url_for('blog') }}">Blog</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('guide') }}">Build Guide</a>
@@ -41,62 +39,12 @@
     </nav>
 
     <div class="articles">
-        <button class="article bg-dark" data-bs-toggle="modal" data-bs-target="#myModal">
-            <p class="h4 text-white">Epic article heading</p>
-            <img src="{{ url_for('static', filename='kb3.webp') }}" width="310px" height="207px">
-        </button>
-
-        <div class="modal" id="myModal">
-            <div class="modal-dialog modal-lg modal-dialog-scrollable">
-                <div class="modal-content bg-dark text-light">
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h4 class="modal-title">
-                            Modal Heading<br>
-                            <small>Modal Subtitle</small>
-                        </h4>
-                        <button type="button" class="btn-close btn-light" data-bs-dismiss="modal"></button>
-                    </div>
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                        <img class="img-fluid" src="{{ url_for('static', filename='kb3.webp') }}">
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam ab hic quod repellendus minus eos animi eum, perspiciatis nemo, natus facilis blanditiis sequi modi expedita officia esse earum ducimus harum! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam ab hic quod repellendus minus eos animi eum, perspiciatis nemo, natus facilis blanditiis sequi modi expedita officia esse earum ducimus harum! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam ab hic quod repellendus minus eos animi eum, perspiciatis nemo, natus facilis blanditiis sequi modi expedita officia esse earum ducimus harum! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam ab hic quod repellendus minus eos animi eum, perspiciatis nemo, natus facilis blanditiis sequi modi expedita officia esse earum ducimus harum! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam ab hic quod repellendus minus eos animi eum, perspiciatis nemo, natus facilis blanditiis sequi modi expedita officia esse earum ducimus harum! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam ab hic quod repellendus minus eos animi eum, perspiciatis nemo, natus facilis blanditiis sequi modi expedita officia esse earum ducimus harum! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam ab hic quod repellendus minus eos animi eum, perspiciatis nemo, natus facilis blanditiis sequi modi expedita officia esse earum ducimus harum! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam ab hic quod repellendus minus eos animi eum, perspiciatis nemo, natus facilis blanditiis sequi modi expedita officia esse earum ducimus harum! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam ab hic quod repellendus minus eos animi eum, perspiciatis nemo, natus facilis blanditiis sequi modi expedita officia esse earum ducimus harum! </p>
-                    </div>
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="article bg-dark">
-            <p class="h4 text-white">Another epic article heading</p>
-            <img src="https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/94b33192007265d12627d04f3b5e31d0?_a=AQAEufR" width="310px">
-        </div>
-        <div class="article bg-dark">
-            <p class="h4 text-white">Extremely long, boring, and uninformative headings tend to disengage readers, whereas short, sharp headings tend to bring in more clicks per view, study finds.</p>
-            <img src="https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/94b33192007265d12627d04f3b5e31d0?_a=AQAEufR" width="310px">
-        </div>
-        <div class="article bg-dark">
-            <p class="h4 text-white">Short</p>
-            <img src="https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/94b33192007265d12627d04f3b5e31d0?_a=AQAEufR" width="310px">
-        </div>
-        <div class="article bg-dark">
-            <p class="h4 text-white">A 🥚 heading 🤣 with 😑 emojis 😭</p>
-            <img src="https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/94b33192007265d12627d04f3b5e31d0?_a=AQAEufR" width="310px">
-        </div>
-        <div class="article bg-dark">
-            <p class="h4 text-white">I ran out of ideas for headings 😭</p>
-            <img src="https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/94b33192007265d12627d04f3b5e31d0?_a=AQAEufR" width="310px">
-        </div>
-
         {% for arti in articles %}
-            <button class="article bg-dark" data-bs-toggle="modal" data-bs-target={{ '#' + arti[0] | replace(' ', '_') }}>
+            <button class="article bg-dark" data-bs-toggle="modal" data-bs-target={{ '#' + arti[4] | replace('.', '') | replace('_', '')}}>
                 <p class="h4 text-white">{{ arti[0] }}</p>
                 <img src="{{ url_for('static', filename='blogs' + '/' + arti[4]) }}" width="310px" height="207px" style="object-fit: cover;">
             </button>
-            <div class="modal" id="{{ arti[0] | replace(' ', '_') }}">
+            <div class="modal" id="{{ arti[4] | replace('.', '') | replace('_', '') }}">
                 <div class="modal-dialog modal-lg modal-dialog-scrollable">
                     <div class="modal-content bg-dark text-light">
                         <!-- Modal Header -->
@@ -110,7 +58,7 @@
                         <!-- Modal body -->
                         <div class="modal-body">
                             <img class="img-fluid" src="{{ url_for('static', filename='blogs' + '/' + arti[4]) }}">
-                            <p>{{ arti[3] }}</p>
+                            <md-block>{{ arti[3] }}</md-block>
                         </div>
                         <!-- Modal footer -->
                         <div class="modal-footer">
