@@ -21,7 +21,7 @@ def home():
     cur = conn.cursor()
     cur.execute("SELECT * FROM ARTICLES")
     articles = cur.fetchall()
-    print(articles)
+    #print(articles)
     conn.close()
     return render_template('blog.html', articles=articles)
 
@@ -59,7 +59,7 @@ def write_post():
 
     
     article["date"] = str(datetime.now().strftime("%d %B %Y"))
-    print(article['title'])
+    #print(article['title'])
     cur.execute("INSERT INTO ARTICLES VALUES (?, ?, ?, ?, ?)", (article['title'], article['author'], article['date'], article['article'], filename))
     conn.commit()
     conn.close()
