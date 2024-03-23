@@ -12,8 +12,6 @@
 </head>
 
 <body>
-    {% block content %}{% endblock %}
-    
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="{{ url_for('home') }}"><img src="{{ url_for('static', filename='logo.png') }}" height="40px"></a>
@@ -23,26 +21,21 @@
             <div class="collapse navbar-collapse" id="mynavbar">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="{{ url_for('home') }}">Home</a>
+                        <a class="nav-link {% block home %}{% endblock %}" href="{{ url_for('home') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('gallery') }}">Gallery</a>
+                        <a class="nav-link {% block gallery %}{% endblock %}" href="{{ url_for('gallery') }}">Gallery</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('blog') }}">Blog</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('guide') }}">Build Guide</a>
+                        <a class="nav-link {% block guide %}{% endblock %}" href="{{ url_for('guide') }}">Build Guide</a>
                     </li>
                 </ul>
-            <form class="d-flex">
-                <input class="form-control me-2" type="text" placeholder="Search">
-                <button class="btn btn-secondary" type="button">Search</button>
-            </form>
+                <div class="writebutton text-center"><a class="btn btn-secondary" href="{{ url_for('write') }}">Write an article</a></div>
             </div>
         </div>
     </nav>
     
+    {% block content %}{% endblock %}
 
     <footer id="footer">
         <div id="footer-content">
