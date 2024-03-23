@@ -30,7 +30,7 @@
                         <a class="nav-link {% block guide %}{% endblock %}" href="{{ url_for('guide') }}">Build Guide</a>
                     </li>
                 </ul>
-                <div class="writebutton text-center"><a class="btn btn-secondary" href="{{ url_for('write') }}">Write an article</a></div>
+                <div class="writebutton text-center"><a class="btn btn-secondary {% block write %}{% endblock %}" href="{{ url_for('write') }}">Write an article</a></div>
             </div>
         </div>
     </nav>

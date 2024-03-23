@@ -1,86 +1,21 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Write an Article</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='node_modules/bootstrap/dist/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='node_modules/aos/dist/aos.css')}}"/>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
+{% extends "base.html" %}
 
-<body>
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="{{ url_for('home') }}"><img src="{{ url_for('static', filename='logo.png') }}" height="40px"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="mynavbar">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('home') }}">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('gallery') }}">Gallery</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('guide') }}">Build Guide</a>
-                    </li>
-                </ul>
-                <div class="writebutton text-center"><a class="btn btn-secondary disabled" href="{{ url_for('write') }}">Write an article</a></div>
-            </div>
-        </div>
-    </nav>
-    
-    <div class="write container py-3 mx-auto bg-muted text-white" style="width: 60vw;">
-        <h1 action="{{ url_for('write_post') }}" data-aos="fade-up">Write a Blog Post</h1>
-        <form method="POST" enctype=multipart/form-data>
-            <label data-aos="fade-up" data-aos-delay="50" for="title">Title:</label><br>
-                <input data-aos="fade-up" data-aos-delay="100" required maxlength="255" id="title" name="title"><br><br>
-            <label data-aos="fade-up" data-aos-delay="150" for="author">Author:</label><br>
-                <input data-aos="fade-up" data-aos-delay="200" required maxlength="255" id="author" name="author"><br><br>
-            <label data-aos="fade-up" data-aos-delay="250" for="articleinput">Article:</label><br>
-                <textarea data-aos="fade-up" data-aos-delay="300" required maxlength="2147483648" id="articleinput" name="article"></textarea><br><br>
-            <label data-aos="fade-up" data-aos-delay="350" for="imginput">Cover Image:</label><br>
-                <input data-aos="fade-up" data-aos-delay="400" required type="file" accept="image/*" id="imginput" name="file"></input><br><br>
-            <input data-aos="fade-up" data-aos-delay="450" class="btn btn-success" type="submit">
-        </form>
-    </div>
+{% block title %}Write Article{% endblock %}
+{% block write %}disabled{% endblock %}
 
-    <footer id="footer">
-        <div id="footer-content">
-            <div class="footer-section">
-                <h3 class="footer-section-title">General</h3>
-                <div class="footer-section-links">
-                    <a href="https://www.youtube.com/channel/UCdJ-WyCkyL7iGOEmnKgqkwQ" target="_blank">Directory</a>
-                    <a href="https://www.youtube.com/channel/UCdJ-WyCkyL7iGOEmnKgqkwQ" target="_blank">About</a>
-                    <a href="https://www.youtube.com/channel/UCdJ-WyCkyL7iGOEmnKgqkwQ" target="_blank">Contact Us</a>
-                </div>
-            </div>
-            <div class="footer-section">
-                <h3 class="footer-section-title">Social</h3>
-                <div class="footer-section-links">
-                    <a href="https://www.youtube.com/channel/UCdJ-WyCkyL7iGOEmnKgqkwQ" target="_blank">Twitter</a>
-                    <a href="https://www.youtube.com/channel/UCdJ-WyCkyL7iGOEmnKgqkwQ" target="_blank">Discord</a>
-                    <a href="https://www.youtube.com/channel/UCdJ-WyCkyL7iGOEmnKgqkwQ" target="_blank">YouTube</a>
-                </div>
-            </div>
-            <div class="footer-section">
-                <h3 class="footer-section-title">Legal</h3>
-                <div class="footer-section-links">
-                    <a href="https://www.youtube.com/channel/UCdJ-WyCkyL7iGOEmnKgqkwQ" target="_blank">Privacy</a>
-                    <a href="https://www.youtube.com/channel/UCdJ-WyCkyL7iGOEmnKgqkwQ" target="_blank">Terms</a>
-                    <a href="https://www.youtube.com/channel/UCdJ-WyCkyL7iGOEmnKgqkwQ" target="_blank">Cookies</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-	<script src="{{ url_for('static', filename='home.js') }}"></script>
-    <script src="{{ url_for('static', filename='node_modules/aos/dist/aos.js')}}"></script>
-    <script>AOS.init();</script>
-    <script src="{{ url_for('static', filename='node_modules/bootstrap/dist/js/bootstrap.min.js')}}"></script>
-</body>
-</html>
+{% block content %}
+<div class="write container py-3 mx-auto bg-muted text-white" style="width: 60vw;">
+    <h1 action="{{ url_for('write_post') }}" data-aos="fade-up">Write a Blog Post</h1>
+    <form method="POST" enctype=multipart/form-data>
+        <label data-aos="fade-up" data-aos-delay="50" for="title">Title:</label><br>
+            <input data-aos="fade-up" data-aos-delay="100" required maxlength="255" id="title" name="title"><br><br>
+        <label data-aos="fade-up" data-aos-delay="150" for="author">Author:</label><br>
+            <input data-aos="fade-up" data-aos-delay="200" required maxlength="255" id="author" name="author"><br><br>
+        <label data-aos="fade-up" data-aos-delay="250" for="articleinput">Article:</label><br>
+            <textarea data-aos="fade-up" data-aos-delay="300" required maxlength="2147483648" id="articleinput" name="article"></textarea><br><br>
+        <label data-aos="fade-up" data-aos-delay="350" for="imginput">Cover Image:</label><br>
+            <input data-aos="fade-up" data-aos-delay="400" required type="file" accept="image/*" id="imginput" name="file"></input><br><br>
+        <input data-aos="fade-up" data-aos-delay="450" class="btn btn-success" type="submit">
+    </form>
+</div>
+{% endblock %}

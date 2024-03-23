@@ -1,108 +1,43 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Blog</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='node_modules/bootstrap/dist/css/bootstrap.min.css')}}">
-    <script type="module" src="{{ url_for('static', filename='node_modules/md-block/md-block.js')}}"></script>
-    <link rel="stylesheet" href="{{ url_for('static', filename='node_modules/aos/dist/aos.css')}}"/>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
+{% extends "base.html" %}
 
-<body>
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="{{ url_for('home') }}"><img src="{{ url_for('static', filename='logo.png') }}" height="40px"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="mynavbar">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="{{ url_for('home') }}">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('gallery') }}">Gallery</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('guide') }}">Build Guide</a>
-                    </li>
-                </ul>
-                <div class="writebutton text-center"><a class="btn btn-secondary" href="{{ url_for('write') }}">Write an article</a></div>
-            </div>
-        </div>
-    </nav>
+{% block title %}Home{% endblock %}
+{% block home %}active{% endblock %}
 
-    <div data-aos="fade-down" class=".container p-5 bg-muted text-white">
-        <h1>Welcome to Clickr.news</h1>
-        <p>Your home for all news keyboard related!</p>
-    </div>
+{% block content %}
+<div data-aos="fade-down" class=".container p-5 bg-muted text-white">
+    <h1>Welcome to Clickr.news</h1>
+    <p>Your home for all news keyboard related!</p>
+</div>
 
-    <div class="articles">
-        {% for arti in articles %}
-            <button data-aos="fade-up" data-aos-delay="50" class="article bg-dark" data-bs-toggle="modal" data-bs-target={{ '#' + arti[4] | replace('.', '') | replace('_', '')}}>
-                <p class="h4 text-white">{{ arti[0] }}</p>
-                <img src="{{ url_for('static', filename='blogs' + '/' + arti[4]) }}" width="310px" height="207px" style="object-fit: cover;">
-            </button>
-            <div class="modal" id="{{ arti[4] | replace('.', '') | replace('_', '') }}">
-                <div class="modal-dialog modal-lg modal-dialog-scrollable">
-                    <div class="modal-content bg-dark text-light">
-                        <!-- Modal Header -->
-                        <div class="modal-header">
-                            <h4 class="modal-title">
-                                {{ arti[0] }}<br>
-                                <small>Author: {{ arti[1] }}, Published: {{ arti[2] }}</small>
-                            </h4>
-                            <button type="button" class="btn-close btn-light" data-bs-dismiss="modal"></button>
-                        </div>
-                        <!-- Modal body -->
-                        <div class="modal-body">
-                            <img class="img-fluid" src="{{ url_for('static', filename='blogs' + '/' + arti[4]) }}">
-                            <md-block>{{ arti[3] }}</md-block>
-                        </div>
-                        <!-- Modal footer -->
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                        </div>
+<div class="articles">
+    {% for arti in articles %}
+        <button data-aos="fade-up" data-aos-delay="50" class="article bg-dark" data-bs-toggle="modal" data-bs-target={{ '#' + arti[4] | replace('.', '') | replace('_', '')}}>
+            <p class="h4 text-white">{{ arti[0] }}</p>
+            <img src="{{ url_for('static', filename='blogs' + '/' + arti[4]) }}" width="310px" height="207px" style="object-fit: cover;">
+        </button>
+        <div class="modal" id="{{ arti[4] | replace('.', '') | replace('_', '') }}">
+            <div class="modal-dialog modal-lg modal-dialog-scrollable">
+                <div class="modal-content bg-dark text-light">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">
+                            {{ arti[0] }}<br>
+                            <small>Author: {{ arti[1] }}, Published: {{ arti[2] }}</small>
+                        </h4>
+                        <button type="button" class="btn-close btn-light" data-bs-dismiss="modal"></button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <img class="img-fluid" src="{{ url_for('static', filename='blogs' + '/' + arti[4]) }}">
+                        <md-block>{{ arti[3] }}</md-block>
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
-        {% endfor %}
-    </div>
-    <footer id="footer">
-        <div id="footer-content">
-            <div class="footer-section">
-                <h3 class="footer-section-title">General</h3>
-                <div class="footer-section-links">
-                    <a href="https://www.youtube.com/channel/UCdJ-WyCkyL7iGOEmnKgqkwQ" target="_blank">Directory</a>
-                    <a href="https://www.youtube.com/channel/UCdJ-WyCkyL7iGOEmnKgqkwQ" target="_blank">About</a>
-                    <a href="https://www.youtube.com/channel/UCdJ-WyCkyL7iGOEmnKgqkwQ" target="_blank">Contact Us</a>
-                </div>
-            </div>
-            <div class="footer-section">
-                <h3 class="footer-section-title">Social</h3>
-                <div class="footer-section-links">
-                    <a href="https://www.youtube.com/channel/UCdJ-WyCkyL7iGOEmnKgqkwQ" target="_blank">Twitter</a>
-                    <a href="https://www.youtube.com/channel/UCdJ-WyCkyL7iGOEmnKgqkwQ" target="_blank">Discord</a>
-                    <a href="https://www.youtube.com/channel/UCdJ-WyCkyL7iGOEmnKgqkwQ" target="_blank">YouTube</a>
-                </div>
-            </div>
-            <div class="footer-section">
-                <h3 class="footer-section-title">Legal</h3>
-                <div class="footer-section-links">
-                    <a href="https://www.youtube.com/channel/UCdJ-WyCkyL7iGOEmnKgqkwQ" target="_blank">Privacy</a>
-                    <a href="https://www.youtube.com/channel/UCdJ-WyCkyL7iGOEmnKgqkwQ" target="_blank">Terms</a>
-                    <a href="https://www.youtube.com/channel/UCdJ-WyCkyL7iGOEmnKgqkwQ" target="_blank">Cookies</a>
-                </div>
-            </div>
         </div>
-    </footer>
-
-	<script src="{{ url_for('static', filename='home.js') }}"></script>
-    <script src="{{ url_for('static', filename='node_modules/aos/dist/aos.js')}}"></script>
-    <script>AOS.init();</script>
-    <script src="{{ url_for('static', filename='node_modules/bootstrap/dist/js/bootstrap.min.js')}}"></script>
-</body>
-</html>
+    {% endfor %}
+</div>
+{% endblock %}
