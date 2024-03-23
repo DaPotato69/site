@@ -56,8 +56,6 @@ def write_post():
     
     conn = sqlite3.connect('articles.db')
     cur = conn.cursor()
-
-    
     article["date"] = str(datetime.now().strftime("%d %B %Y"))
     #print(article['title'])
     cur.execute("INSERT INTO ARTICLES VALUES (?, ?, ?, ?, ?)", (article['title'], article['author'], article['date'], article['article'], filename))
