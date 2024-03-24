@@ -11,11 +11,14 @@
             <input data-aos="fade-up" data-aos-delay="100" required maxlength="255" id="title" name="title"><br><br>
         <label data-aos="fade-up" data-aos-delay="150" for="author">Author:</label><br>
             <input data-aos="fade-up" data-aos-delay="200" required maxlength="255" id="author" name="author"><br><br>
-        <label data-aos="fade-up" data-aos-delay="250" for="articleinput">Article:</label><br>
+        <label data-aos="fade-up" data-aos-delay="250" for="articleinput">Article (markdown supported):</label><br>
             <textarea data-aos="fade-up" data-aos-delay="300" required maxlength="2147483648" id="articleinput" name="article"></textarea><br><br>
+            <h3>Preview: </h3>
+            <md-block id="preview"></md-block><br>
         <label data-aos="fade-up" data-aos-delay="350" for="imginput">Cover Image:</label><br>
             <input data-aos="fade-up" data-aos-delay="400" required type="file" accept="image/*" id="imginput" name="file"></input><br><br>
         <input data-aos="fade-up" data-aos-delay="450" class="btn btn-success" type="submit">
     </form>
+    
 </div>
 {% endblock %}

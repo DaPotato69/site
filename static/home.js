@@ -36,3 +36,11 @@ window.onmouseup = e => handleOnUp(e);
 window.ontouchend = e => handleOnUp(e.touches[0]);
 window.onmousemove = e => handleOnMove(e);
 window.ontouchmove = e => handleOnMove(e.touches[0]);
+
+// live preview
+var textarea = document.querySelector('textarea');
+var p = document.querySelector('#preview');
+
+textarea.addEventListener('change', function (event) {
+  p.mdContent = event.target.value;
+});
