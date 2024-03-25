@@ -37,6 +37,10 @@ def guide():
 def write():
     return render_template('write.html')
 
+@app.route('/legal')
+def legal():
+    return render_template('legal.html')
+
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
