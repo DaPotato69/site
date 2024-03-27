@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Login{% endblock %}
+{% block content %}
+<div class="write container py-3 mx-auto bg-muted text-white" style="width: 60vw;">
+    <h1 action="{{ url_for('write_post') }}" data-aos="fade-up">Admin Login</h1>
+    {% if incorrect %}
+        <div class="alert alert-danger alert-dismissible">
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            <strong>Incorrect Credentials</strong> Please try again.
+        </div>
+    {% endif %}
+    <form method="POST" enctype=multipart/form-data>
+        <label data-aos="fade-up" data-aos-delay="50" for="username">Username:</label><br>
+            <input data-aos="fade-up" data-aos-delay="100" required maxlength="255" id="username" name="username"><br><br>
+        <label data-aos="fade-up" data-aos-delay="150" for="password">Password:</label><br>
+            <input data-aos="fade-up" data-aos-delay="200" required maxlength="255" id="password" name="password"><br><br>
+        <input data-aos="fade-up" data-aos-delay="450" class="btn btn-success" type="submit">
+    </form>
+</div>
+{% endblock %}

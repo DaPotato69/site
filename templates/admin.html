@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}Admin{% endblock %}
+
+{% block content %}
+{% if authenticated %}
+<div data-aos="fade-down" class=".container p-5 bg-muted text-white">
+    <h1>Articles pending review: </h1>
+</div>
+
+<div class="articles">
+    {% for arti in articles %}
+        <button data-aos="fade-up" data-aos-delay="50" class="article bg-dark" data-bs-toggle="modal" data-bs-target={{ '#' + arti[4] | replace('.', '') | replace('_', '')}}>
+            <p class="h4 text-white">{{ arti[0] }}</p>
+            <img src="{{ url_for('static', filename='blogs' + '/' + arti[4]) }}" width="310px" height="207px" style="object-fit: cover;">
+        </button>
+        <div class="modal" id="{{ arti[4] | replace('.', '') | replace('_', '') }}">
+            <div class="modal-dialog modal-lg modal-dialog-scrollable">
+                <div class="modal-content bg-dark text-light">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">
+                            {{ arti[0] }}<br>
+                            <small>Author: {{ arti[1] }}, Published: {{ arti[2] }}</small>
+                        </h4>
+                        <button type="button" class="btn-close btn-light" data-bs-dismiss="modal"></button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <img class="img-fluid" src="{{ url_for('static', filename='blogs' + '/' + arti[4]) }}">
+                        <md-block>{{ arti[3] }}</md-block>
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <form action="{{ url_for('write_post') }}" data-aos="fade-up"></form>
+                        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Accept</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Reject</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% else %}
+<div data-aos="fade-down" class=".container p-5 bg-muted text-white">
+    <h1>No Access</h1>
+    <p>You are not logged in!</p>
+</div>
+{% endif %}
+{% endblock %}
