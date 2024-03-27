@@ -7,6 +7,12 @@
 <div data-aos="fade-down" class=".container p-5 bg-muted text-white">
     <h1>Welcome to Clickr.news</h1>
     <p>Your home for all news keyboard related!</p>
+    {% if written %}
+    <div class="alert alert-success alert-dismissible">
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        <strong>Thank you for submitting an article!</strong> Your article is under review by our moderation team.
+    </div>
+    {% endif %}
 </div>
 
 <div class="articles">

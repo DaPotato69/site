@@ -23,13 +23,17 @@ app.secret_key = 'many random bytes'
 
 @app.route('/')
 def home():
+    written = request.args.get('written', default=0, type=int)
     conn = sqlite3.connect('articles.db')
     cur = conn.cursor()
     cur.execute("SELECT * FROM ARTICLES")
     articles = cur.fetchall()
     #print(articles)
     conn.close()
-    return render_template('blog.html', articles=articles)
+    if written:
+        return render_template('blog.html', articles=articles, written=1)
+    else:
+        return render_template('blog.html', articles=articles, written=0)
 
 @app.route('/gallery')
 def gallery():
@@ -72,7 +76,7 @@ def write_post():
     conn.commit()
     conn.close()
 
-    return redirect(url_for('home'))
+    return redirect(url_for('home', written=1))
 
 @app.route('/login')
 def login():
