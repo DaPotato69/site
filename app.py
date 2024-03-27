@@ -86,10 +86,10 @@ def login_post():
     else:
         return render_template('login.html', incorrect=True)
 
-@app.route('/admin', methods=['GET', 'POST'])
+@app.route('/admin')
 def admin():
     authenticated = request.args.get('authenticated', default=0, type=int)
-    print(authenticated)
+    #print(authenticated)
     if authenticated:
         conn = sqlite3.connect('articles.db')
         cur = conn.cursor()
@@ -99,3 +99,26 @@ def admin():
         return render_template('admin.html', authenticated=authenticated, articles=articles)
     else:
         return render_template('admin.html', authenticated=authenticated)
+
+@app.route('/admin/accept/<article>')
+def admin_post_accept(article):
+    conn = sqlite3.connect('articles.db')
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM PENDING WHERE title=?", (article,))
+    article = cur.fetchall()[0]
+    cur.execute("INSERT INTO ARTICLES VALUES (?, ?, ?, ?, ?)", article)
+    cur.execute("DELETE FROM PENDING WHERE title=?", (article[0],))
+    conn.commit()
+    conn.close()
+    return redirect(url_for('admin', authenticated=1))
+
+@app.route('/admin/reject/<article>')
+def admin_post_reject(article):
+    conn = sqlite3.connect('articles.db')
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM PENDING WHERE title=?", (article,))
+    article = cur.fetchall()[0]
+    cur.execute("DELETE FROM PENDING WHERE title=?", (article[0],))
+    conn.commit()
+    conn.close()
+    return redirect(url_for('admin', authenticated=1))
