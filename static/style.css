@@ -2,6 +2,7 @@ body {
   background-color: black;
   margin: 0rem;
   overflow-x: hidden;
+
 }
 
 /* ----- Image Track ------ */
@@ -40,12 +41,12 @@ body {
   -ms-user-select: none;
   user-select: none;
   font-family: 'Courier New', Courier, monospace;
-  font-size: 2em;
+  font-size: 3vh;
 }
 
-/* ----- Big ass spacer ----- */
+/* ----- Big spacer ----- */
 
-#bigassspacer{
+#bigspacer{
   height: 650px;
 }
 
@@ -91,7 +92,6 @@ body {
 /* ----- Footer ----- */
 
 #footer h3, a {
-  font-family: "Rubik", sans-serif;
   font-weight: 400;
   margin: 0px;
 }
@@ -99,7 +99,6 @@ body {
 #footer {
   border-top: 1px solid rgba(255, 255, 255, 0.25);
   bottom: 0px;
-  
   width: 100%;
 }
 
@@ -180,4 +179,6 @@ body {
 .articleimg {
   padding-top: 10px;
   padding-bottom: 20px;
+  max-width: 80vw;
+  max-height: 400px;
 }

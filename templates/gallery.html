@@ -2,6 +2,7 @@
 
 {% block title %}Gallery{% endblock %}
 {% block gallery %}active{% endblock %}
+{% block pan %}style="touch-action: pan-y;"{% endblock %}
 
 {% block content %}
 <div data-aos="fade-up" id="textdiv"><p>Drag to view images</p></div>
@@ -16,5 +17,5 @@
     <img class="image" src="{{ url_for('static', filename='kb8.webp') }}" draggable="false">
 </div>
 
-<div id="bigassspacer"></div>
+<div id="bigspacer"></div>
 {% endblock %}
