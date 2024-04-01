@@ -7,6 +7,7 @@
 <div data-aos="fade-down" class=".container p-5 bg-muted text-white">
     <h1>Welcome to Clickr.news</h1>
     <p>Your home for all news keyboard related!</p>
+    <!-- If the user has just been redirected home from the write page -->
     {% if written %}
     <div class="alert alert-success alert-dismissible">
         <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
@@ -16,6 +17,8 @@
 </div>
 
 <div class="articles">
+    <!-- Makes a new modal for each article -->
+    <!-- arti is a tuple -->
     {% for arti in articles %}
         <button data-aos="fade-up" data-aos-delay="50" class="article bg-dark" data-bs-toggle="modal" data-bs-target={{ '#' + arti[4] | replace('.', '') | replace('_', '')}}>
             <p class="h4 text-white">{{ arti[0] }}</p>
@@ -24,12 +27,13 @@
         <div class="modal" id="{{ arti[4] | replace('.', '') | replace('_', '') }}">
             <div class="modal-dialog modal-lg modal-dialog-scrollable">
                 <div class="modal-content bg-dark text-light">
-                    <!-- Modal Header -->
+                    <!-- Modal header -->
                     <div class="modal-header">
                         <h4 class="modal-title">
                             {{ arti[0] }}<br>
                             <small>Author: {{ arti[1] }}, Published: {{ arti[2] }}</small>
                         </h4>
+                        <!-- Close modal -->
                         <button type="button" class="btn-close btn-light" data-bs-dismiss="modal"></button>
                     </div>
                     <!-- Modal body -->
@@ -39,6 +43,7 @@
                     </div>
                     <!-- Modal footer -->
                     <div class="modal-footer">
+                        <!-- Close modal -->
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>

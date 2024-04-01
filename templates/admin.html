@@ -3,12 +3,15 @@
 {% block title %}Admin{% endblock %}
 
 {% block content %}
+<!-- Checks if user logged in through login page -->
 {% if authenticated %}
 <div data-aos="fade-down" class=".container p-5 bg-muted text-white">
     <h1>Articles pending review: </h1>
 </div>
 
 <div class="articles">
+    <!-- Creates a new modal for each article in articles -->
+    <!-- Each arti is a tuple -->
     {% for arti in articles %}
         <button data-aos="fade-up" data-aos-delay="50" class="article bg-dark" data-bs-toggle="modal" data-bs-target={{ '#' + arti[4] | replace('.', '') | replace('_', '')}}>
             <p class="h4 text-white">{{ arti[0] }}</p>
@@ -17,12 +20,13 @@
         <div class="modal" id="{{ arti[4] | replace('.', '') | replace('_', '') }}">
             <div class="modal-dialog modal-lg modal-dialog-scrollable">
                 <div class="modal-content bg-dark text-light">
-                    <!-- Modal Header -->
+                    <!-- Modal header -->
                     <div class="modal-header">
                         <h4 class="modal-title">
                             {{ arti[0] }}<br>
                             <small>Author: {{ arti[1] }}, Published: {{ arti[2] }}</small>
                         </h4>
+                        <!-- Close modal -->
                         <button type="button" class="btn-close btn-light" data-bs-dismiss="modal"></button>
                     </div>
                     <!-- Modal body -->
@@ -40,6 +44,7 @@
         </div>
     {% endfor %}
 </div>
+<!-- User is not admin -->
 {% else %}
 <div data-aos="fade-down" class=".container p-5 bg-muted text-white">
     <h1>No Access</h1>

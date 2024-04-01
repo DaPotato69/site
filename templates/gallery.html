@@ -2,10 +2,14 @@
 
 {% block title %}Gallery{% endblock %}
 {% block gallery %}active{% endblock %}
+<!-- Disable horizontal scroll -->
 {% block pan %}style="touch-action: pan-y;"{% endblock %}
 
 {% block content %}
+<!-- Tutorial text -->
 <div data-aos="fade-up" id="textdiv"><p>Drag to view images</p></div>
+<!-- All of the images -->
+<!-- data-mouse-down-at and data-prev-percentage help the scroll effects -->
 <div data-aos="fade-down" id="image-track" data-mouse-down-at="0" data-prev-percentage="0">
     <img class="image" src="{{ url_for('static', filename='kb1.webp') }}" draggable="false">
     <img class="image" src="{{ url_for('static', filename='kb2.webp') }}" draggable="false">

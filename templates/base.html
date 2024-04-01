@@ -5,22 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Clickr.news: {% block title %}{% endblock %}</title>
+    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='logo.png') }}">
+    <!-- Bootstrap 5 stylesheet -->
     <link rel="stylesheet" href="{{ url_for('static', filename='node_modules/bootstrap/dist/css/bootstrap.min.css')}}">
+    <!-- Markdown renderer javascript -->
     <script type="module" src="{{ url_for('static', filename='node_modules/md-block/md-block.js')}}"></script>
+    <!-- Scroll animations stylesheet -->
     <link rel="stylesheet" href="{{ url_for('static', filename='node_modules/aos/dist/aos.css')}}"/>
+    <!-- Other stylesheet -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
+<!-- Pan block disables side scroll on gallery page -->
 <body {% block pan %}{% endblock %}>
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
         <div class="container-fluid">
+            <!-- Logo takes you to home page -->
             <a class="navbar-brand" href="{{ url_for('home') }}"><img src="{{ url_for('static', filename='logo.png') }}" height="40px"></a>
+            <!-- Only shows on small screens, expands navbar -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="mynavbar">
                 <ul class="navbar-nav me-auto">
+                    <!-- Links -->
                     <li class="nav-item">
                         <a class="nav-link {% block home %}{% endblock %}" href="{{ url_for('home') }}">Home</a>
                     </li>
@@ -31,18 +41,22 @@
                         <a class="nav-link {% block guide %}{% endblock %}" href="{{ url_for('guide') }}">Build Guide</a>
                     </li>
                 </ul>
+                <!-- Link to write page -->
                 <div class="writebutton text-center"><a class="btn btn-secondary {% block write %}{% endblock %}" href="{{ url_for('write') }}">Write an article</a></div>
             </div>
         </div>
     </nav>
     
+    <!-- All of the content of pages -->
     {% block content %}{% endblock %}
 
+    <!-- Footer -->
     <footer id="footer">
         <div id="footer-content">
             <div class="footer-section">
                 <h3 class="footer-section-title">General</h3>
                 <div class="footer-section-links">
+                    <!-- Various links on page -->
                     <a href="{{ url_for('home') }}">Home</a>
                     <a href="{{ url_for('gallery') }}">Gallery</a>
                     <a href="{{ url_for('guide') }}">Build Guide</a>
@@ -51,6 +65,7 @@
             <div class="footer-section">
                 <h3 class="footer-section-title">Social</h3>
                 <div class="footer-section-links">
+                    <!-- I don't have X or a discord server so they all go to youtube -->
                     <a href="https://www.youtube.com/channel/UCdJ-WyCkyL7iGOEmnKgqkwQ" target="_blank">Twitter</a>
                     <a href="https://www.youtube.com/channel/UCdJ-WyCkyL7iGOEmnKgqkwQ" target="_blank">Discord</a>
                     <a href="https://www.youtube.com/channel/UCdJ-WyCkyL7iGOEmnKgqkwQ" target="_blank">YouTube</a>
@@ -59,6 +74,7 @@
             <div class="footer-section">
                 <h3 class="footer-section-title">Legal</h3>
                 <div class="footer-section-links">
+                    <!-- All go to legal page -->
                     <a href="{{ url_for('legal') }}">Privacy</a>
                     <a href="{{ url_for('legal') }}">Terms</a>
                     <a href="{{ url_for('legal') }}">Cookies</a>
@@ -67,9 +83,12 @@
         </div>
     </footer>
 
+    <!-- My own javascript (gallery page and live markdown preview) -->
 	<script src="{{ url_for('static', filename='home.js') }}"></script>
+    <!-- Scroll animation javascript -->
     <script src="{{ url_for('static', filename='node_modules/aos/dist/aos.js')}}"></script>
     <script>AOS.init();</script>
+    <!-- Bootstrap 5 stylesheet -->
     <script src="{{ url_for('static', filename='node_modules/bootstrap/dist/js/bootstrap.min.js')}}"></script>
 </body>
 </html>

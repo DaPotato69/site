@@ -1,11 +1,13 @@
 {% extends "base.html" %}
 
 {% block title %}Write Article{% endblock %}
+<!-- Disable write button (you are already there) -->
 {% block write %}disabled{% endblock %}
 
 {% block content %}
 <div class="write container py-3 mx-auto bg-muted text-white" style="width: 60vw;">
     <h1 action="{{ url_for('write_post') }}" data-aos="fade-up">Write a Blog Post</h1>
+    <!-- Big form to enter your article -->
     <form method="POST" enctype=multipart/form-data>
         <label data-aos="fade-up" data-aos-delay="50" for="title">Title:</label><br>
             <input data-aos="fade-up" data-aos-delay="100" required maxlength="255" id="title" name="title"><br><br>
@@ -19,6 +21,5 @@
             <input data-aos="fade-up" data-aos-delay="400" required type="file" accept="image/*" id="imginput" name="file"></input><br><br>
         <input data-aos="fade-up" data-aos-delay="450" class="btn btn-success" type="submit">
     </form>
-    
 </div>
 {% endblock %}
