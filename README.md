@@ -1,9 +1,5 @@
-# site
- 
-epic website for school
-
-its not done yet so if ur here<br><br>
-why?
+# Clickr.news
+A blog website dedicated to all things keyboards
 
 ## How to try it
 - clone this repo
@@ -11,3 +7,4 @@ why?
 - `npm install`
 - `cd ..`
 - `flask run`
+- go to 127.0.0.1:5000
