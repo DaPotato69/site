@@ -8,6 +8,7 @@
 <div class="write container py-3 mx-auto bg-muted text-white" style="width: 60vw;">
     <h1 action="{{ url_for('write_post') }}" data-aos="fade-up">Write a Blog Post</h1>
     <!-- Big form to enter your article -->
+    <!-- Includes max-length and requires all parts to be filled -->
     <form method="POST" enctype=multipart/form-data>
         <label data-aos="fade-up" data-aos-delay="50" for="title">Title:</label><br>
             <input data-aos="fade-up" data-aos-delay="100" required maxlength="255" id="title" name="title"><br><br>
