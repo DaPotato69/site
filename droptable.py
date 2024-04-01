@@ -1,3 +1,4 @@
+# delete all articles (DON'T DO IT UNLESS ABSOLUTELY NECESSARY)
 import sqlite3
 conn = sqlite3.connect('articles.db')
 cur = conn.cursor()
