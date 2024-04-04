@@ -47,11 +47,13 @@
         </div>
     </nav>
     <!-- Cookie banner, &#x1F36A; is the cookie emoji 🍪 -->
-    <div class="alert alert-dark text-center mb-0" role="alert">
+    <div id="cookieBanner" class="alert alert-primary text-center mb-0" role="alert">
         &#x1F36A; This website uses cookies to ensure you get the best experience possible.
-        <a href="{{ url_for('legal') }}">Learn more</a>
-        <button type="button" class="btn btn-primary btn-sm ms-3" onclick="window.cb_hideCookieBanner()">Sure!</button>
+        <a href="{{ url_for('legal') }}" class="alert-link">Learn more</a>
+        <button type="button" class="btn btn-success btn-sm ms-3" data-bs-dismiss="alert">Sure!</button>
+        <button type="button" class="btn btn-danger btn-sm ms-3" data-bs-dismiss="alert">No Thanks</button>
     </div>
+
     <!-- All of the content of pages -->
     {% block content %}{% endblock %}
 

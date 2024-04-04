@@ -45,35 +45,3 @@ var p = document.querySelector('#preview');
 textarea.addEventListener('change', function (event) {
   p.mdContent = event.target.value;
 });
-
-// cookie popup
-
-// show banner
-function showCookieBanner(){
-  let cookieBanner = document.getElementById("cb-cookie-banner");
-  cookieBanner.style.display = "block";
-}
-
-// hide banner when clicked, save to local storage
-function hideCookieBanner(){
-  localStorage.setItem("cb_isCookieAccepted", "yes");
-
-  let cookieBanner = document.getElementById("cb-cookie-banner");
-  cookieBanner.style.display = "none";
-}
-
-// call showCookieBanner() if user hasn't accepted cookies yet
-function initializeCookieBanner(){
-  let isCookieAccepted = localStorage.getItem("cb_isCookieAccepted");
-  if(isCookieAccepted === null)
-  {
-      localStorage.setItem("cb_isCookieAccepted", "no");
-      showCookieBanner();
-  }
-  if(isCookieAccepted === "no"){
-      showCookieBanner();
-  }
-}
-
-window.onload = initializeCookieBanner();
-window.cb_hideCookieBanner = hideCookieBanner();
