@@ -4,6 +4,14 @@
 {% block home %}active{% endblock %}
 
 {% block content %}
+<!-- Cookie banner, &#x1F36A; is the cookie emoji 🍪 -->
+<div data-aos="fade-down" class="alert alert-primary text-center mb-0" role="alert">
+    &#x1F36A; This website uses cookies to ensure you get the best experience possible.
+    <a href="{{ url_for('legal') }}" class="alert-link">Learn more</a>
+    <button type="button" class="btn btn-success btn-sm ms-3" data-bs-dismiss="alert">Sure!</button>
+    <button type="button" class="btn btn-danger btn-sm ms-3" data-bs-dismiss="alert">No Thanks</button>
+</div>
+
 <div data-aos="fade-down" class=".container p-5 bg-muted text-white">
     <h1>Welcome to Clickr.news</h1>
     <p>Your home for all news keyboard related!</p>
