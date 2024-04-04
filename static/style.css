@@ -1,8 +1,7 @@
 body {
   background-color: black;
-  margin: 0rem;
+  margin: 0;
   overflow-x: hidden;
-
 }
 
 /* ----- Image Track ------ */
@@ -91,9 +90,49 @@ body {
 
 /* ----- Footer ----- */
 
+.waves {
+  position: relative;
+  height: 10vh;
+  z-index: 0;
+}
+
+.wave {
+  position: absolute;
+  bottom: 0;
+  height: 120px;
+  width: 100%;
+  background: url('/static/wave.png') repeat-x;
+  background-size: 250rem 30rem;
+  animation: animate 15s linear infinite;
+  z-index: 0;
+}
+
+@keyframes  animate {
+  0% {
+    background-position-x: 0;
+    background-position-x: -250rem;
+  }
+}
+
+.wave:nth-child(1) {
+  opacity: 0.9;
+}
+
+.wave:nth-child(2) {
+  opacity: 0.5;
+  animation-delay: 0.2s;
+  animation-direction: reverse;
+}
+
+.wave:nth-child(3) {
+  opacity: 0.7;
+  animation-delay: 5s;
+}
+
 #footer h3, a {
   font-weight: 400;
   margin: 0px;
+  z-index: 999;
 }
 
 #footer {
