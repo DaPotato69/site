@@ -46,7 +46,12 @@
             </div>
         </div>
     </nav>
-    
+    <!-- Cookie banner, &#x1F36A; is the cookie emoji 🍪 -->
+    <div class="alert alert-dark text-center mb-0" role="alert">
+        &#x1F36A; This website uses cookies to ensure you get the best experience possible.
+        <a href="{{ url_for('legal') }}">Learn more</a>
+        <button type="button" class="btn btn-primary btn-sm ms-3" onclick="window.cb_hideCookieBanner()">Sure!</button>
+    </div>
     <!-- All of the content of pages -->
     {% block content %}{% endblock %}
 
@@ -82,7 +87,7 @@
             </div>
         </div>
     </footer>
-
+    
     <!-- My own javascript (gallery page and live markdown preview) -->
 	<script src="{{ url_for('static', filename='home.js') }}"></script>
     <!-- Scroll animation javascript -->
